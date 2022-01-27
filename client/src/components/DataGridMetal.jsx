@@ -11,7 +11,7 @@ const columns = [
     { field: 'formed', headerName: 'Formed', width: 150},
     { field: 'origin', headerName: 'Origin', width: 150 },
     { field: 'split', headerName: 'Split', width: 150 },
-    { field: 'style', headerName: 'Style', resizable: true, width: 450},
+    { field: 'style', headerName: 'Style', width: 450},
 ];
 
 async function getBandDataFromCSV() {
@@ -27,10 +27,12 @@ async function getBandDataFromCSV() {
 
 export default function DataGridMetal() {
     var [rows, setRows] = React.useState([]);
+    const [dataLen, setDataLen] = React.useState(0);
 
     React.useEffect(() => {
         getBandDataFromCSV()
         .then(data => {
+            setDataLen(data.length);
             data.map((object) => {
                 setRows(rows => [...rows, {
                     id: object[0],
@@ -46,16 +48,20 @@ export default function DataGridMetal() {
         .catch(err => console.log(err));
     }, [])
 
-    return (
-        <div>
-            <div className="datagrid">
-                <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={10}
-                rowsPerPageOptions={[5]}
-                />
+    if (rows.length === dataLen) {
+        return (
+            <div>
+                <div className="datagrid">
+                    <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={10}
+                    rowsPerPageOptions={[5, 10, 20]}
+                    />
+                </div>
             </div>
+    )} else return (
+        <div>
         </div>
     )
 }
