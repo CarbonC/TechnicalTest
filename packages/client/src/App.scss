@@ -1,0 +1,14 @@
+.content {
+  .title {
+    text-align: center;
+  }
+  .filters {
+    margin: auto;
+    text-align: center;
+
+    & input {
+      margin: 0 1rem;
+      padding: 0.5rem;
+    }
+  }
+}

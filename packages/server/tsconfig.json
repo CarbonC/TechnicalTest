@@ -1,0 +1,21 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"target": "es6",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"outDir": "dist",
+		"module": "commonjs",
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["srcs/*"],
+			"@type/*": ["types/*"],
+			"@error/*": ["srcs/error/*"],
+			"@middleware/*": ["middleware/*"]
+		},
+		"strictNullChecks": true
+	},
+	"include": ["srcs/**/*.ts", "types/**/*.ts"],
+	"exclude": ["dist"]
+}
