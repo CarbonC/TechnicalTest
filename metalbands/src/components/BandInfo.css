@@ -1,5 +1,13 @@
+.div {
+    list-style: none;
+}
+
 .infos {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+
+.formed, .origin, .split, .style, .fans {
+    flex: 1;
 }

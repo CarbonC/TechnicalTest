@@ -1,16 +1,16 @@
 import "./BandInfo.css"
 
-function BandInfo () {
+function BandInfo (props) {
     return (
-        <div >
-          <li>
-            <h2>Band name</h2>
+        <div className="div">
+          <li key={props.data.id}>
+            <h2>{props.data.band_name}</h2>
             <div className="infos">
-              <p>Formed: </p>
-              <p>Origin: </p>
-              <p>Split: </p>
-              <p>Style: </p>
-              <p>Fans: </p>
+              <p className="formed">Formed: {props.data.formed}</p>
+              <p className="origin">Origin: {props.data.origin}</p>
+              <p className="split">Split: {props.data.split}</p>
+              <p className="style">Style: {props.data.style}</p>
+              <p className="fans">Fans: {props.data.fans}</p>
             </div>
           </li>
         </div>
