@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <Container>
       <div>
-        <h1>Metal Bands</h1>
+        <h1 className="text-center">Metal Bands</h1>
         <BandsList />
       </div>
     </Container>
