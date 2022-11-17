@@ -46,31 +46,44 @@ export default function BandsList() {
   // - click on all will display all records, even if the other filter is set
   // - only the last filter is taken into account, can't combine two filters (lack of time to implement)
 
-  const handleSelectStyle = (evt) => {
-    setSelectedStyle(evt.target.value);
+  const handleSelectStyle = (event) => {
+    setSelectedStyle(event.target.value);
 
     const filtered_data = initialData.filter((band) => {
-      if (evt.target.value === "all") {
+      if (selectedCountry === "all") {
         return band;
       } else {
-        return band.style === evt.target.value;
-      }
-    });
+        return band.origin === selectedCountry;
+      } }).filter((band) => {
+        if (event.target.value === "all") {
+          return band;
+        } else {
+          return band.style === event.target.value;
+        }
+      })
+
     setData(filtered_data);
   };
 
-  const handleSelectCountry = (evt) => {
-    setSelectedCountry(evt.target.value);
+  const handleSelectCountry = (event) => {
+    setSelectedCountry(event.target.value);
 
     const filtered_data = initialData.filter((band) => {
-      if (evt.target.value === "all") {
+      if (event.target.value === "all") {
         return band;
       } else {
-        return band.origin === evt.target.value;
-      }
-    });
+        return band.origin === event.target.value;
+      } }).filter((band) => {
+        if (selectedStyle === "all") {
+          return band;
+        } else {
+          return band.style === selectedStyle;
+        }
+      })
+
     setData(filtered_data);
   };
+
 
   return (
     <div className="bands">
