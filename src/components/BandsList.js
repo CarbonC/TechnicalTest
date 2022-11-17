@@ -65,6 +65,7 @@ export default function BandsList() {
     setData(filtered_data);
   };
 
+
   const handleSelectCountry = (event) => {
     setSelectedCountry(event.target.value);
 
@@ -84,6 +85,18 @@ export default function BandsList() {
     setData(filtered_data);
   };
 
+    // SORT
+    const sortByYearAsc = () => {
+      setData(data.sort((a, b) => (parseInt(a.formed) - parseInt(b.formed))))
+      console.log(data)
+      // Problem, does not re render
+    };
+
+    const sortByYearDesc = () => {
+      setData(data.sort((a, b) => (parseInt(b.formed) - parseInt(a.formed))))
+      console.log(data)
+      // Problem, does not re render
+    };
 
   return (
     <div className="bands">
@@ -96,6 +109,8 @@ export default function BandsList() {
             selectedCountry={selectedCountry}
             styles={styles}
             countries={countries}
+            sortByYearAsc={sortByYearAsc}
+            sortByYearDesc={sortByYearDesc}
           />
         )
       }

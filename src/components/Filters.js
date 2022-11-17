@@ -8,6 +8,8 @@ function Filters(props) {
     selectedCountry,
     handleSelectStyle,
     handleSelectCountry,
+    sortByYearAsc,
+    sortByYearDesc
   } = props;
 
   const selectStyle = event => {
@@ -22,6 +24,14 @@ function Filters(props) {
 
   return (
     <div>
+      {/* SORT */}
+      <button onClick={sortByYearAsc}>
+        Sort by year ASC
+      </button>
+      <button onClick={sortByYearDesc}>
+        Sort by year DESC
+      </button>
+
       <div className="">
         <div className="text-lg font-bold mb-2">Styles</div>
         <select value={selectedStyle} onChange={selectStyle}>
