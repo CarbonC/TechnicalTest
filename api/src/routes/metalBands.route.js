@@ -11,12 +11,11 @@ const requestSchema = {
         toInt: true,
         errorMessage: 'Page is wrong'
     },
-    pagination: {
-        optional: true,
+    records: {
         in: ['query'],
         isInt: true,
         toInt: true,
-        errorMessage: 'Pagination is wrong'
+        errorMessage: 'Records is wrong'
     }
 }
 

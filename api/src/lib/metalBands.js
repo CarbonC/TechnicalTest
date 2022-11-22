@@ -5,14 +5,15 @@ const { parse } = require('csv-parse');
 * 
 *  
 */
-function getData(page = 0, pagination = 20) {
+function getData(page = 0, records) {
     return new Promise((resolve, reject) => {
         const rows = [];
 
         const parseOptions = {
+            columns: true,
             delimiter: ",",
-            from_line: (page * pagination) + 1,
-            to_line: (page * pagination + pagination) + 1
+            from_line: 1,
+            to_line: records
         }
 
         fs.createReadStream('./metal_bands_2017.csv')
