@@ -9,31 +9,44 @@ export default function Table(props) {
       .get("http://localhost:3500/bands")
       .then((response) => {
         console.log(response.data);
-        setBands(
-          response.data.sort((a, b) => a.band_name.localeCompare(b.band_name))
-        );
+        const sortedData = response.data.sort((a, b) => {
+          return a.band_name.localeCompare(b.band_name);
+        });
+        setBands(sortedData);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+  const handleSortByOrigin = () => {
+    const sortedData = bands.sort((a, b) => {
+      return a.origin.localeCompare(b.origin);
+    });
+    setBands(sortedData);
+  };
+
+  const handleSortByStyle = () => {
+    const sortedData = bands.sort((a, b) => {
+      return a.style.localeCompare(b.style);
+    });
+    setBands(sortedData);
+  };
+
   return (
     <>
       <table>
         <thead>
           <tr>
-            <th>
-              <button>Band Name</button>
-            </th>
+            <th>Band Name</th>
             <th>Fans</th>
             <th>Formed</th>
             <th>
-              <button>Origin</button>
+              <button onClick={handleSortByOrigin}>Origin</button>
             </th>
             <th>Split</th>
             <th>
-              <button>Style</button>
+              <button onClick={handleSortByStyle}>Style</button>
             </th>
           </tr>
         </thead>
