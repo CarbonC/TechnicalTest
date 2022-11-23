@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+import Table from "./Components/Table/table";
+
 export default function App() {
   const [bands, setBands] = useState([]);
 
@@ -20,34 +22,9 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1>App</h1>
-        <div className="bands-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Band Name</th>
-                <th>Fans</th>
-                <th>Formed</th>
-                <th>Origin</th>
-                <th>Split</th>
-                <th>Style</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bands.map((band) => (
-                <tr key={band._id}>
-                  <td>{band.band_name}</td>
-                  <td>{band.fans}</td>
-                  <td>{band.formed}</td>
-                  <td>{band.origin}</td>
-                  <td>{band.split}</td>
-                  <td>{band.style}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <h1>Metal Bands</h1>
       </header>
+      <Table bands={bands} />
     </div>
   );
 }
