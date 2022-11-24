@@ -1,0 +1,1 @@
+export { ArtistFiltered } from './ArtistFiltered'
