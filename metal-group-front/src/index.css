@@ -1,0 +1,13 @@
+body {
+	background-color: #282828;
+	color: #ebdbb2;
+  margin: 0;
+  font-family: 'Liberation Mono';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
